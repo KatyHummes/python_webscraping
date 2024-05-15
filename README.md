@@ -1,7 +1,3 @@
-## olá, eu sou a @KatyHummes
-
-![Desing preview](./fotos/front end.png)
-
 ## Informações tecnicas:
 
 Neste projeto de WebScraping foi usado python e selenium, raspei os dados do site de venda de imóveis vila ricae também tirei print e fiz um historico dos dados
@@ -17,7 +13,3 @@ Neste projeto de WebScraping foi usado python e selenium, raspei os dados do sit
 - abra o arquivo instale i selenium: pip install selenium webdriver-manager
 
 - rode o projeto.
-
-
-## Links das Bibliotecas e outros usados no Projeto:
-
