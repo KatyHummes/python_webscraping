@@ -6,22 +6,17 @@ import os
 import csv
 from datetime import datetime
 
-# Configurando o Selenium
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
-# Acessando a página
 driver.get("https://www.vilarica.com.br/comprar/prontos/sao-leopoldo-rs")
 
-# Aguardando o carregamento da página
-driver.implicitly_wait(10)  # Aguarda até 10 segundos pelo carregamento dos elementos
+driver.implicitly_wait(10) 
 
 # Criando uma pasta para armazenar os screenshots
 os.makedirs("screenshots", exist_ok=True)
 
-# Tentando encontrar todos os elementos com a classe 'wrap-link'
 anuncios = driver.find_elements(By.CLASS_NAME, "wrap-link")
 
-# Verificar se o arquivo CSV já existe para evitar duplicação de cabeçalhos
 file_exists = os.path.isfile("historico_anuncios.csv")
 
 # Abrindo arquivo CSV para escrita
@@ -30,7 +25,6 @@ with open("historico_anuncios.csv", mode="a", newline="", encoding="utf-8") as f
     if not file_exists:
         writer.writerow(["Data", "URL", "Local", "Preço", "Screenshot"])
 
-    # Iterando sobre os elementos encontrados e extraindo informações
     for i, anuncio in enumerate(anuncios):
         url = anuncio.get_attribute("href")
         try:
@@ -49,12 +43,10 @@ with open("historico_anuncios.csv", mode="a", newline="", encoding="utf-8") as f
         print(f"Preço: {preco}")
         print("-" * 50)
 
-        # Capturando o screenshot do elemento
         screenshot_path = f"screenshots/anuncio_{i + 1}.png"
         anuncio.screenshot(screenshot_path)
         print(f"Screenshot salvo em: {screenshot_path}")
 
-        # Escrevendo dados no CSV
         writer.writerow(
             [
                 datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
@@ -103,6 +95,4 @@ for i, anuncio in enumerate(anuncios):
     else:
         print(f"URL inválida: {url}")
 
-
-# Fechando o navegador
 driver.quit()
