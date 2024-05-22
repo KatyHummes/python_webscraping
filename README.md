@@ -1,8 +1,6 @@
 ## Informações tecnicas:
 
-Neste projeto de WebScraping foi usado python e selenium, raspei os dados do site de venda de imóveis vila ricae também tirei print e fiz um historico dos dados
-
-
+Neste projeto de WebScraping foi usado python e selenium, raspei os dados do site de venda de imóveis vila rica e também do site viva real, tirei print e fiz um historico dos dados de ambos
 
 ## Como usar:
 

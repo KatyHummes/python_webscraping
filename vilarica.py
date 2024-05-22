@@ -12,12 +12,15 @@ driver.get("https://www.vilarica.com.br/comprar/prontos/sao-leopoldo-rs")
 
 driver.implicitly_wait(10) 
 
+botao_cookies = driver.find_element(By.CLASS_NAME, 'lgpd-accept')
+botao_cookies.click()
+
 # Criando uma pasta para armazenar os screenshots
 os.makedirs("screenshots", exist_ok=True)
 
 anuncios = driver.find_elements(By.CLASS_NAME, "wrap-link")
 
-file_exists = os.path.isfile("historico_anuncios.csv")
+file_exists = os.path.isfile("historico_anuncios_vila_rica.csv")
 
 # Abrindo arquivo CSV para escrita
 with open("historico_anuncios.csv", mode="a", newline="", encoding="utf-8") as file:
